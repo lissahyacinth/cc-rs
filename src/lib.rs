@@ -1425,7 +1425,7 @@ impl Build {
                 // This is an undocumented flag from MSVC but helps with making
                 // builds more reproducible by avoiding putting timestamps into
                 // files.
-                cmd.push_cc_arg("-Brepro".into());
+                //cmd.push_cc_arg("-Brepro".into());
 
                 if clang_cl {
                     if target.contains("x86_64") {
