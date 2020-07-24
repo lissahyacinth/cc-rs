@@ -1469,6 +1469,9 @@ impl Build {
                     if target.contains("x86_64") {
                         cmd.args.push("-arch".into());
                         cmd.args.push("x86_64".into());
+                    } else if target.contains("arm64e") {
+                        cmd.args.push("-arch".into());
+                        cmd.args.push("arm64e".into());
                     } else if target.contains("aarch64") {
                         cmd.args.push("-arch".into());
                         cmd.args.push("arm64".into());
@@ -1852,6 +1855,7 @@ impl Build {
         let arch = match arch {
             "arm" | "armv7" | "thumbv7" => ArchSpec::Device("armv7"),
             "armv7s" | "thumbv7s" => ArchSpec::Device("armv7s"),
+            "arm64e" => ArchSpec::Device("arm64e"),
             "arm64" | "aarch64" => ArchSpec::Device("arm64"),
             "i386" | "i686" => ArchSpec::Simulator("-m32"),
             "x86_64" => ArchSpec::Simulator("-m64"),
@@ -2288,6 +2292,7 @@ impl Build {
             "thumbv7neon-unknown-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
             "thumbv7neon-unknown-linux-musleabihf" => Some("arm-linux-musleabihf"),
             "armv7-unknown-netbsd-eabihf" => Some("armv7--netbsdelf-eabihf"),
+            "hexagon-unknown-linux-musl" => Some("hexagon-linux-musl"),
             "i586-unknown-linux-musl" => Some("musl"),
             "i686-pc-windows-gnu" => Some("i686-w64-mingw32"),
             "i686-uwp-windows-gnu" => Some("i686-w64-mingw32"),
